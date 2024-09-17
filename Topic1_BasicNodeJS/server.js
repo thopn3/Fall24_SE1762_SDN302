@@ -32,9 +32,24 @@ const rect = require("./rectangle");
 // CalcRectangle(10, 3);
 
 // Test Promise
-rect(-20, 10)
-    .then(({area, perimeter}) => {
-        console.log(`Diện tích = ${area}`);
-        console.log(`Chu vi = ${perimeter}`);
-    })
-    .catch(err => console.log(err));
+// rect(-20, 10)
+//     .then(({area, perimeter}) => {
+//         console.log(`Diện tích = ${area}`);
+//         console.log(`Chu vi = ${perimeter}`);
+//     })
+//     .catch(err => console.log(err));
+
+async function CalcRectangle(l, w){
+    try {
+        const {area, perimeter} = await rect(l, w);
+        console.log(`Chu vi HCN = ${perimeter}`);
+        console.log(`Diện tích HCN = ${area}`);
+    } catch (error) {
+        console.log(`Lỗi: ${error.message}`);
+    }
+}
+
+// Execution: Client send requests
+CalcRectangle(20, 10);
+CalcRectangle(-20, 5);
+CalcRectangle(10, 3);
