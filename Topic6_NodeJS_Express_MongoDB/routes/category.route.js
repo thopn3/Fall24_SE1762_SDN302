@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const Category = require("../models/category.mode");
+const Category = require("../models/category.model");
 const {CategoryController} = require("../controllers");
 
 const categoryRouter = express.Router();

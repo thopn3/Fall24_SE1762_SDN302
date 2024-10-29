@@ -5,7 +5,7 @@ const httpErrors = require("http-errors");
 require("dotenv").config();
 
 const db = require("./models");
-const { CategoryRouter, ProductRouter } = require("./routes");
+const { CategoryRouter, ProductRouter, AuthRouter } = require("./routes");
 
 const app = express();
 
@@ -19,6 +19,7 @@ app.get("/", async (req, res, next) => {
 // Dinh tuyen theo cac chuc nang thuc te
 app.use("/category", CategoryRouter);
 app.use("/product", ProductRouter);
+app.use("/auth", AuthRouter);
 
 app.use(async (req, res, next) => {
     next(httpErrors.BadRequest("Bad request"));
